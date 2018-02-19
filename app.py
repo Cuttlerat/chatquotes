@@ -18,18 +18,7 @@ DATABASES = {
         )
     },
 }
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-            ],
-        },
-    },
-]
+
 configure(locals(), django_admin=True)
 
 class Quote(models.Model):
