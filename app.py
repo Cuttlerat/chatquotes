@@ -10,7 +10,10 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ.get(
+            'DATABASE_PATH',
+            os.path.join(BASE_DIR, 'db.sqlite3'),
+        )
     },
 }
 configure(locals(), django_admin=True)
@@ -32,5 +35,5 @@ def homepage(request):
     return render(request, 'base.html', {'quotes': quotes})
 
 
-route('admin/', admin.site.urls)
+route(os.environ.get('ADMIN_PATH', 'admin/'), admin.site.urls)
 application = run()
