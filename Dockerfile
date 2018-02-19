@@ -6,4 +6,5 @@ RUN pip install -r requirements.txt
 COPY migrations .
 COPY templates .
 COPY app.py .
-RUN python app.py migrate
+ENTRYPOINT ["python", "app.py"]
+CMD ["runserver"]
