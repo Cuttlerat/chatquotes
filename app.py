@@ -18,6 +18,12 @@ DATABASES = {
         )
     },
 }
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+    },
+]
 configure(locals(), django_admin=True)
 
 class Quote(models.Model):
