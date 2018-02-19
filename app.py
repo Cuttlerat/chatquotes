@@ -6,7 +6,9 @@ from django.shortcuts import render
 from django.db import models
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEBUG = True
+DEBUG = False if os.environ.get('DEBUG') == 'False' else True
+if not DEBUG:
+    ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'quotes.hotkosc.ru')]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
